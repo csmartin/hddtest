@@ -12,10 +12,10 @@ echo "Testing drive /dev/$1" | tee $log_file   # no -a here, to create a new fil
 echo "Starting at $(date +%Y-%m-%d-%H:%M:%S)" | tee -a $log_file
 
 # Retrieve serial number - compatible with both SAS and SATA
-serialnum=$(sdparm --page=SN /dev/$1  | tail -1 | awk '{print $1}')
+serialnum=$(/usr/local/bin/sdparm --page=SN /dev/$1  | tail -1 | awk '{print $1}')
 
 # Determine SATA or SAS for other variables
-is_ata=$(sdparm /dev/$1 | awk '{print $2}' | head -1)
+is_ata=$(/usr/local/bin/sdparm /dev/$1 | awk '{print $2}' | head -1)
 echo "is_ata: $is_ata"
 if [ $is_ata = "ATA" ]
 then
@@ -24,7 +24,7 @@ then
     modelnum=$(hdparm -I /dev/$1 | grep "Model Number" | awk '{print $4}')
 else
     echo "Drive is SAS" | tee -a $log_file
-    manuf=$(sdparm /dev/$1 | awk '{print $2}' | head -1)
+    manuf=$(/usr/local/bin/sdparm /dev/$1 | awk '{print $2}' | head -1)
     modelnum=$is_ata
 fi
 
