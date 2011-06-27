@@ -4,5 +4,5 @@
 # Usage:
 #    testdrive.sh sdf
 
-./testdrive.sh $1 3134185124@vtext.com
+./testdrive.sh $1 root@hddtest2
 
