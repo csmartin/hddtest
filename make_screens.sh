@@ -1,5 +1,5 @@
 #!/bin/bash
-
+dmsetup remove_all
 screen -AdmS sdc
 screen -AdmS sdd
 screen -AdmS sde
