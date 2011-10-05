@@ -36,6 +36,10 @@ devsize=$(fdisk -l /dev/$1 2>/dev/null | head -2 | tail -1 | awk '{print $3,$4}'
 echo "Size: $devsize" | tee -a $log_file
 
 
+#show pre-test stats
+prestat=$(smartctl -T permissive  -a /dev/$1 | egrep "(Realloc|Current_Pe|Offline_Unc)")
+echo "Pre-test stats:\n$prestat" | tee -a $log_file
+
 #run the test
 bbcount=$(badblocks -swft random /dev/$1 | tee -a $log_file | wc -l)
 
@@ -45,4 +49,10 @@ smartline=$(smartctl -a /dev/$1 | egrep -o "FAILURE PREDICTION THRESHOLD EXCEEDE
 echo "$bbcount bad block(s) found. $smartline" | tee -a $log_file # echo to screen and log
 echo "$bbcount bad block(s) found. $smartline" |  mail -s "/dev/$1: test complete. $serialnum" $2  # echo to email
 echo "Finished at $(date +%Y-%m-%d-%H:%M:%S)." | tee -a $log_file;
+
+
+#show post-test stats
+poststat=$(smartctl -T permissive  -a /dev/$1 | egrep "(Realloc|Current_Pe|Offline_Unc)")
+echo "Post-test stats:\n$poststat" | tee -a $log_file
+
 
