@@ -22,10 +22,12 @@ then
     echo "Drive is SATA" | tee -a $log_file
     manuf=$(hdparm -I /dev/$1 | grep "Model Number" | awk '{print $3}')
     modelnum=$(hdparm -I /dev/$1 | grep "Model Number" | awk '{print $4}')
+    prestat=$(smartctl -T permissive  -a /dev/$1 | egrep "(Realloc|Current_Pe|Offline_Unc)")
 else
     echo "Drive is SAS" | tee -a $log_file
     manuf=$(/usr/local/bin/sdparm /dev/$1 | awk '{print $2}' | head -1)
     modelnum=$is_ata
+    prestat=$(smartctl -T permissive -a /dev/$1 | grep "grown defect")
 fi
 
 echo "Manufacturer: $manuf" | tee -a $log_file
@@ -37,8 +39,8 @@ echo "Size: $devsize" | tee -a $log_file
 
 
 #show pre-test stats
-prestat=$(smartctl -T permissive  -a /dev/$1 | egrep "(Realloc|Current_Pe|Offline_Unc)")
-echo "Pre-test stats:\n$prestat" | tee -a $log_file
+echo "Pre-test stats:" | tee -a $log_file
+echo "$prestat" | tee -a $log_file
 
 #run the test
 bbcount=$(badblocks -swft random /dev/$1 | tee -a $log_file | wc -l)
@@ -50,9 +52,13 @@ echo "$bbcount bad block(s) found. $smartline" | tee -a $log_file # echo to scre
 echo "$bbcount bad block(s) found. $smartline" |  mail -s "/dev/$1: test complete. $serialnum" $2  # echo to email
 echo "Finished at $(date +%Y-%m-%d-%H:%M:%S)." | tee -a $log_file;
 
-
 #show post-test stats
-poststat=$(smartctl -T permissive  -a /dev/$1 | egrep "(Realloc|Current_Pe|Offline_Unc)")
-echo "Post-test stats:\n$poststat" | tee -a $log_file
+if [ $is_ata = "ATA" ]
+then
+    poststat=$(smartctl -T permissive  -a /dev/$1 | egrep "(Realloc|Current_Pe|Offline_Unc)")
+else
+    poststat=$(smartctl -T permissive -a /dev/$1 | grep "grown defect")
+fi
 
-
+echo "Post-test stats:" | tee -a $log_file
+echo "$poststat" | tee -a $log_file
