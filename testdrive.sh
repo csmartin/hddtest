@@ -46,7 +46,7 @@ echo "$prestat" | tee -a $log_file
 bbcount=$(badblocks -swft random /dev/$1 | tee -a $log_file | wc -l)
 
 #check smart after the test
-smartline=$(smartctl -a /dev/$1 | egrep -o "FAILURE PREDICTION THRESHOLD EXCEEDED")
+smartline=$(smartctl -a /dev/$1 | egrep -o "(FAILURE PREDICTION THRESHOLD EXCEEDED|HARDWARE IMPENDING FAILURE")
 
 echo "$bbcount bad block(s) found. $smartline" | tee -a $log_file # echo to screen and log
 echo "$bbcount bad block(s) found. $smartline" |  mail -s "/dev/$1: test complete. $serialnum" $2  # echo to email
