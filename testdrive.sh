@@ -46,10 +46,16 @@ echo "$prestat" | tee -a $log_file
 bbcount=$(badblocks -swft random /dev/$1 | tee -a $log_file | wc -l)
 
 #check smart after the test
-smartline=$(smartctl -T permissive -a /dev/$1 | egrep -o "(FAILURE PREDICTION THRESHOLD EXCEEDED|HARDWARE IMPENDING FAILURE|FAILED!)")
+if [ $is_ata = "ATA" ]
+then
+    smartline=$(smartctl -T permissive -a /dev/$1 | grep "SMART over-all health")
+else
+    smartline=$(smartctl -T permissive -a /dev/$1 | grep "SMART Health Status")
+fi
 
-echo "$bbcount bad block(s) found. $smartline" | tee -a $log_file # echo to screen and log
-echo "$bbcount bad block(s) found. $smartline" |  mail -s "/dev/$1: test complete. $serialnum" $2  # echo to email
+echo "$bbcount bad block(s) found." | tee -a $log_file # echo to screen and log
+echo "$smartline" | tee -a $log_file # echo to screen and log
+
 echo "Finished at $(date +%Y-%m-%d-%H:%M:%S)." | tee -a $log_file;
 
 #show post-test stats
