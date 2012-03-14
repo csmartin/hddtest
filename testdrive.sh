@@ -48,7 +48,7 @@ bbcount=$(badblocks -swft random /dev/$1 | tee -a $log_file | wc -l)
 #check smart after the test
 if [ $is_ata = "ATA" ]
 then
-    smartline=$(smartctl -T permissive -a /dev/$1 | grep "SMART over-all health")
+    smartline=$(smartctl -T permissive -a /dev/$1 | grep "SMART overall-health")
 else
     smartline=$(smartctl -T permissive -a /dev/$1 | grep "SMART Health Status")
 fi
