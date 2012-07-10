@@ -27,7 +27,7 @@ else
     echo "Drive is SAS" | tee -a $log_file
     manuf=$(/usr/local/bin/sdparm /dev/$1 | awk '{print $2}' | head -1)
     modelnum=$is_ata
-    prestat=$(smartctl -T permissive -a /dev/$1 | grep "grown defect")
+    prestat=$(smartctl -T permissive -a /dev/$1 | egrep "(Non-medium|grown defect)")
 fi
 
 echo "Manufacturer: $manuf" | tee -a $log_file
@@ -63,7 +63,7 @@ if [ $is_ata = "ATA" ]
 then
     poststat=$(smartctl -T permissive  -a /dev/$1 | egrep "(Realloc|Current_Pe|Offline_Unc)")
 else
-    poststat=$(smartctl -T permissive -a /dev/$1 | grep "grown defect")
+    poststat=$(smartctl -T permissive -a /dev/$1 | egrep "(Non-medium|grown defect)")
 fi
 
 echo "Post-test stats:" | tee -a $log_file
