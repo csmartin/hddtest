@@ -13,7 +13,7 @@
 # even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.
 
-MAKE=make
+
 
 pkgdatadir = $(datadir)/sdparm
 pkgincludedir = $(includedir)/sdparm
@@ -101,14 +101,14 @@ DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /root/sdparm-1.06/missing --run aclocal-1.11
-AMTAR = ${SHELL} /root/sdparm-1.06/missing --run tar
-AUTOCONF = ${SHELL} /root/sdparm-1.06/missing --run autoconf
-AUTOHEADER = ${SHELL} /root/sdparm-1.06/missing --run autoheader
-AUTOMAKE = ${SHELL} /root/sdparm-1.06/missing --run automake-1.11
+ACLOCAL = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run aclocal-1.11
+AMTAR = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run tar
+AUTOCONF = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run autoconf
+AUTOHEADER = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run autoheader
+AUTOMAKE = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run automake-1.11
 AWK = gawk
 CC = gcc
-CCDEPMODE = depmode=none
+CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
 CPP = gcc -E
 CPPFLAGS = 
@@ -132,7 +132,7 @@ LIBOBJS =
 LIBS = 
 LTLIBOBJS = 
 MAINT = #
-MAKEINFO = ${SHELL} /root/sdparm-1.06/missing --run makeinfo
+MAKEINFO = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = sdparm
@@ -143,17 +143,17 @@ PACKAGE_TARNAME = sdparm
 PACKAGE_URL = 
 PACKAGE_VERSION = 1.06
 PATH_SEPARATOR = :
-SET_MAKE = MAKE=make
+SET_MAKE = 
 SGUTILS_LIBS = 
 SHELL = /bin/sh
 STRIP = 
 VERSION = 1.06
-abs_builddir = /root/sdparm-1.06
-abs_srcdir = /root/sdparm-1.06
-abs_top_builddir = /root/sdparm-1.06
-abs_top_srcdir = /root/sdparm-1.06
+abs_builddir = /chroot/home/nexcmartin/sdparm-1.06
+abs_srcdir = /chroot/home/nexcmartin/sdparm-1.06
+abs_top_builddir = /chroot/home/nexcmartin/sdparm-1.06
+abs_top_srcdir = /chroot/home/nexcmartin/sdparm-1.06
 ac_ct_CC = gcc
-am__include = #
+am__include = include
 am__leading_dot = .
 am__quote = 
 am__tar = ${AMTAR} chof - "$$tardir"
@@ -178,7 +178,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /root/sdparm-1.06/install-sh
+install_sh = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

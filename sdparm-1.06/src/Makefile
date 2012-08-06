@@ -13,7 +13,7 @@
 # even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.
 
-MAKE=make
+
 
 
 pkgdatadir = $(datadir)/sdparm
@@ -81,14 +81,14 @@ DIST_SOURCES = $(am__sdparm_SOURCES_DIST) $(EXTRA_sdparm_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /root/sdparm-1.06/missing --run aclocal-1.11
-AMTAR = ${SHELL} /root/sdparm-1.06/missing --run tar
-AUTOCONF = ${SHELL} /root/sdparm-1.06/missing --run autoconf
-AUTOHEADER = ${SHELL} /root/sdparm-1.06/missing --run autoheader
-AUTOMAKE = ${SHELL} /root/sdparm-1.06/missing --run automake-1.11
+ACLOCAL = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run aclocal-1.11
+AMTAR = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run tar
+AUTOCONF = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run autoconf
+AUTOHEADER = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run autoheader
+AUTOMAKE = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run automake-1.11
 AWK = gawk
 CC = gcc
-CCDEPMODE = depmode=none
+CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
 CPP = gcc -E
 CPPFLAGS = 
@@ -112,7 +112,7 @@ LIBOBJS =
 LIBS = 
 LTLIBOBJS = 
 MAINT = #
-MAKEINFO = ${SHELL} /root/sdparm-1.06/missing --run makeinfo
+MAKEINFO = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = sdparm
@@ -123,17 +123,17 @@ PACKAGE_TARNAME = sdparm
 PACKAGE_URL = 
 PACKAGE_VERSION = 1.06
 PATH_SEPARATOR = :
-SET_MAKE = MAKE=make
+SET_MAKE = 
 SGUTILS_LIBS = 
 SHELL = /bin/sh
 STRIP = 
 VERSION = 1.06
-abs_builddir = /root/sdparm-1.06/src
-abs_srcdir = /root/sdparm-1.06/src
-abs_top_builddir = /root/sdparm-1.06
-abs_top_srcdir = /root/sdparm-1.06
+abs_builddir = /chroot/home/nexcmartin/sdparm-1.06/src
+abs_srcdir = /chroot/home/nexcmartin/sdparm-1.06/src
+abs_top_builddir = /chroot/home/nexcmartin/sdparm-1.06
+abs_top_srcdir = /chroot/home/nexcmartin/sdparm-1.06
 ac_ct_CC = gcc
-am__include = #
+am__include = include
 am__leading_dot = .
 am__quote = 
 am__tar = ${AMTAR} chof - "$$tardir"
@@ -158,7 +158,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /root/sdparm-1.06/install-sh
+install_sh = ${SHELL} /chroot/home/nexcmartin/sdparm-1.06/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -293,178 +293,178 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-# ./$(DEPDIR)/getopt_long.Po
-# ./$(DEPDIR)/sdparm.Po
-# ./$(DEPDIR)/sdparm_access.Po
-# ./$(DEPDIR)/sdparm_cmd.Po
-# ./$(DEPDIR)/sdparm_data.Po
-# ./$(DEPDIR)/sdparm_data_vendor.Po
-# ./$(DEPDIR)/sdparm_vpd.Po
-# ./$(DEPDIR)/sdparm_wscan.Po
-# ./$(DEPDIR)/sg_cmds_basic.Po
-# ./$(DEPDIR)/sg_cmds_mmc.Po
-# ./$(DEPDIR)/sg_lib.Po
-# ./$(DEPDIR)/sg_lib_data.Po
-# ./$(DEPDIR)/sg_pt_common.Po
-# ./$(DEPDIR)/sg_pt_freebsd.Po
-# ./$(DEPDIR)/sg_pt_linux.Po
-# ./$(DEPDIR)/sg_pt_osf1.Po
-# ./$(DEPDIR)/sg_pt_solaris.Po
-# ./$(DEPDIR)/sg_pt_win32.Po
+include ./$(DEPDIR)/getopt_long.Po
+include ./$(DEPDIR)/sdparm.Po
+include ./$(DEPDIR)/sdparm_access.Po
+include ./$(DEPDIR)/sdparm_cmd.Po
+include ./$(DEPDIR)/sdparm_data.Po
+include ./$(DEPDIR)/sdparm_data_vendor.Po
+include ./$(DEPDIR)/sdparm_vpd.Po
+include ./$(DEPDIR)/sdparm_wscan.Po
+include ./$(DEPDIR)/sg_cmds_basic.Po
+include ./$(DEPDIR)/sg_cmds_mmc.Po
+include ./$(DEPDIR)/sg_lib.Po
+include ./$(DEPDIR)/sg_lib_data.Po
+include ./$(DEPDIR)/sg_pt_common.Po
+include ./$(DEPDIR)/sg_pt_freebsd.Po
+include ./$(DEPDIR)/sg_pt_linux.Po
+include ./$(DEPDIR)/sg_pt_osf1.Po
+include ./$(DEPDIR)/sg_pt_solaris.Po
+include ./$(DEPDIR)/sg_pt_win32.Po
 
 .c.o:
-#	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
-#	$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-	source='$<' object='$@' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(COMPILE) -c $<
+	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+	$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+#	source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(COMPILE) -c $<
 
 .c.obj:
-#	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
-#	$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-	source='$<' object='$@' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
+	$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+#	source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
 sg_lib.o: ../lib/sg_lib.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_lib.o -MD -MP -MF $(DEPDIR)/sg_lib.Tpo -c -o sg_lib.o `test -f '../lib/sg_lib.c' || echo '$(srcdir)/'`../lib/sg_lib.c
-#	$(am__mv) $(DEPDIR)/sg_lib.Tpo $(DEPDIR)/sg_lib.Po
-	source='../lib/sg_lib.c' object='sg_lib.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_lib.o `test -f '../lib/sg_lib.c' || echo '$(srcdir)/'`../lib/sg_lib.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_lib.o -MD -MP -MF $(DEPDIR)/sg_lib.Tpo -c -o sg_lib.o `test -f '../lib/sg_lib.c' || echo '$(srcdir)/'`../lib/sg_lib.c
+	$(am__mv) $(DEPDIR)/sg_lib.Tpo $(DEPDIR)/sg_lib.Po
+#	source='../lib/sg_lib.c' object='sg_lib.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_lib.o `test -f '../lib/sg_lib.c' || echo '$(srcdir)/'`../lib/sg_lib.c
 
 sg_lib.obj: ../lib/sg_lib.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_lib.obj -MD -MP -MF $(DEPDIR)/sg_lib.Tpo -c -o sg_lib.obj `if test -f '../lib/sg_lib.c'; then $(CYGPATH_W) '../lib/sg_lib.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_lib.c'; fi`
-#	$(am__mv) $(DEPDIR)/sg_lib.Tpo $(DEPDIR)/sg_lib.Po
-	source='../lib/sg_lib.c' object='sg_lib.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_lib.obj `if test -f '../lib/sg_lib.c'; then $(CYGPATH_W) '../lib/sg_lib.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_lib.c'; fi`
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_lib.obj -MD -MP -MF $(DEPDIR)/sg_lib.Tpo -c -o sg_lib.obj `if test -f '../lib/sg_lib.c'; then $(CYGPATH_W) '../lib/sg_lib.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_lib.c'; fi`
+	$(am__mv) $(DEPDIR)/sg_lib.Tpo $(DEPDIR)/sg_lib.Po
+#	source='../lib/sg_lib.c' object='sg_lib.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_lib.obj `if test -f '../lib/sg_lib.c'; then $(CYGPATH_W) '../lib/sg_lib.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_lib.c'; fi`
 
 sg_lib_data.o: ../lib/sg_lib_data.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_lib_data.o -MD -MP -MF $(DEPDIR)/sg_lib_data.Tpo -c -o sg_lib_data.o `test -f '../lib/sg_lib_data.c' || echo '$(srcdir)/'`../lib/sg_lib_data.c
-#	$(am__mv) $(DEPDIR)/sg_lib_data.Tpo $(DEPDIR)/sg_lib_data.Po
-	source='../lib/sg_lib_data.c' object='sg_lib_data.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_lib_data.o `test -f '../lib/sg_lib_data.c' || echo '$(srcdir)/'`../lib/sg_lib_data.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_lib_data.o -MD -MP -MF $(DEPDIR)/sg_lib_data.Tpo -c -o sg_lib_data.o `test -f '../lib/sg_lib_data.c' || echo '$(srcdir)/'`../lib/sg_lib_data.c
+	$(am__mv) $(DEPDIR)/sg_lib_data.Tpo $(DEPDIR)/sg_lib_data.Po
+#	source='../lib/sg_lib_data.c' object='sg_lib_data.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_lib_data.o `test -f '../lib/sg_lib_data.c' || echo '$(srcdir)/'`../lib/sg_lib_data.c
 
 sg_lib_data.obj: ../lib/sg_lib_data.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_lib_data.obj -MD -MP -MF $(DEPDIR)/sg_lib_data.Tpo -c -o sg_lib_data.obj `if test -f '../lib/sg_lib_data.c'; then $(CYGPATH_W) '../lib/sg_lib_data.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_lib_data.c'; fi`
-#	$(am__mv) $(DEPDIR)/sg_lib_data.Tpo $(DEPDIR)/sg_lib_data.Po
-	source='../lib/sg_lib_data.c' object='sg_lib_data.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_lib_data.obj `if test -f '../lib/sg_lib_data.c'; then $(CYGPATH_W) '../lib/sg_lib_data.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_lib_data.c'; fi`
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_lib_data.obj -MD -MP -MF $(DEPDIR)/sg_lib_data.Tpo -c -o sg_lib_data.obj `if test -f '../lib/sg_lib_data.c'; then $(CYGPATH_W) '../lib/sg_lib_data.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_lib_data.c'; fi`
+	$(am__mv) $(DEPDIR)/sg_lib_data.Tpo $(DEPDIR)/sg_lib_data.Po
+#	source='../lib/sg_lib_data.c' object='sg_lib_data.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_lib_data.obj `if test -f '../lib/sg_lib_data.c'; then $(CYGPATH_W) '../lib/sg_lib_data.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_lib_data.c'; fi`
 
 sg_cmds_basic.o: ../lib/sg_cmds_basic.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_cmds_basic.o -MD -MP -MF $(DEPDIR)/sg_cmds_basic.Tpo -c -o sg_cmds_basic.o `test -f '../lib/sg_cmds_basic.c' || echo '$(srcdir)/'`../lib/sg_cmds_basic.c
-#	$(am__mv) $(DEPDIR)/sg_cmds_basic.Tpo $(DEPDIR)/sg_cmds_basic.Po
-	source='../lib/sg_cmds_basic.c' object='sg_cmds_basic.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_cmds_basic.o `test -f '../lib/sg_cmds_basic.c' || echo '$(srcdir)/'`../lib/sg_cmds_basic.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_cmds_basic.o -MD -MP -MF $(DEPDIR)/sg_cmds_basic.Tpo -c -o sg_cmds_basic.o `test -f '../lib/sg_cmds_basic.c' || echo '$(srcdir)/'`../lib/sg_cmds_basic.c
+	$(am__mv) $(DEPDIR)/sg_cmds_basic.Tpo $(DEPDIR)/sg_cmds_basic.Po
+#	source='../lib/sg_cmds_basic.c' object='sg_cmds_basic.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_cmds_basic.o `test -f '../lib/sg_cmds_basic.c' || echo '$(srcdir)/'`../lib/sg_cmds_basic.c
 
 sg_cmds_basic.obj: ../lib/sg_cmds_basic.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_cmds_basic.obj -MD -MP -MF $(DEPDIR)/sg_cmds_basic.Tpo -c -o sg_cmds_basic.obj `if test -f '../lib/sg_cmds_basic.c'; then $(CYGPATH_W) '../lib/sg_cmds_basic.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_cmds_basic.c'; fi`
-#	$(am__mv) $(DEPDIR)/sg_cmds_basic.Tpo $(DEPDIR)/sg_cmds_basic.Po
-	source='../lib/sg_cmds_basic.c' object='sg_cmds_basic.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_cmds_basic.obj `if test -f '../lib/sg_cmds_basic.c'; then $(CYGPATH_W) '../lib/sg_cmds_basic.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_cmds_basic.c'; fi`
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_cmds_basic.obj -MD -MP -MF $(DEPDIR)/sg_cmds_basic.Tpo -c -o sg_cmds_basic.obj `if test -f '../lib/sg_cmds_basic.c'; then $(CYGPATH_W) '../lib/sg_cmds_basic.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_cmds_basic.c'; fi`
+	$(am__mv) $(DEPDIR)/sg_cmds_basic.Tpo $(DEPDIR)/sg_cmds_basic.Po
+#	source='../lib/sg_cmds_basic.c' object='sg_cmds_basic.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_cmds_basic.obj `if test -f '../lib/sg_cmds_basic.c'; then $(CYGPATH_W) '../lib/sg_cmds_basic.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_cmds_basic.c'; fi`
 
 sg_cmds_mmc.o: ../lib/sg_cmds_mmc.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_cmds_mmc.o -MD -MP -MF $(DEPDIR)/sg_cmds_mmc.Tpo -c -o sg_cmds_mmc.o `test -f '../lib/sg_cmds_mmc.c' || echo '$(srcdir)/'`../lib/sg_cmds_mmc.c
-#	$(am__mv) $(DEPDIR)/sg_cmds_mmc.Tpo $(DEPDIR)/sg_cmds_mmc.Po
-	source='../lib/sg_cmds_mmc.c' object='sg_cmds_mmc.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_cmds_mmc.o `test -f '../lib/sg_cmds_mmc.c' || echo '$(srcdir)/'`../lib/sg_cmds_mmc.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_cmds_mmc.o -MD -MP -MF $(DEPDIR)/sg_cmds_mmc.Tpo -c -o sg_cmds_mmc.o `test -f '../lib/sg_cmds_mmc.c' || echo '$(srcdir)/'`../lib/sg_cmds_mmc.c
+	$(am__mv) $(DEPDIR)/sg_cmds_mmc.Tpo $(DEPDIR)/sg_cmds_mmc.Po
+#	source='../lib/sg_cmds_mmc.c' object='sg_cmds_mmc.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_cmds_mmc.o `test -f '../lib/sg_cmds_mmc.c' || echo '$(srcdir)/'`../lib/sg_cmds_mmc.c
 
 sg_cmds_mmc.obj: ../lib/sg_cmds_mmc.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_cmds_mmc.obj -MD -MP -MF $(DEPDIR)/sg_cmds_mmc.Tpo -c -o sg_cmds_mmc.obj `if test -f '../lib/sg_cmds_mmc.c'; then $(CYGPATH_W) '../lib/sg_cmds_mmc.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_cmds_mmc.c'; fi`
-#	$(am__mv) $(DEPDIR)/sg_cmds_mmc.Tpo $(DEPDIR)/sg_cmds_mmc.Po
-	source='../lib/sg_cmds_mmc.c' object='sg_cmds_mmc.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_cmds_mmc.obj `if test -f '../lib/sg_cmds_mmc.c'; then $(CYGPATH_W) '../lib/sg_cmds_mmc.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_cmds_mmc.c'; fi`
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_cmds_mmc.obj -MD -MP -MF $(DEPDIR)/sg_cmds_mmc.Tpo -c -o sg_cmds_mmc.obj `if test -f '../lib/sg_cmds_mmc.c'; then $(CYGPATH_W) '../lib/sg_cmds_mmc.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_cmds_mmc.c'; fi`
+	$(am__mv) $(DEPDIR)/sg_cmds_mmc.Tpo $(DEPDIR)/sg_cmds_mmc.Po
+#	source='../lib/sg_cmds_mmc.c' object='sg_cmds_mmc.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_cmds_mmc.obj `if test -f '../lib/sg_cmds_mmc.c'; then $(CYGPATH_W) '../lib/sg_cmds_mmc.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_cmds_mmc.c'; fi`
 
 sg_pt_common.o: ../lib/sg_pt_common.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_common.o -MD -MP -MF $(DEPDIR)/sg_pt_common.Tpo -c -o sg_pt_common.o `test -f '../lib/sg_pt_common.c' || echo '$(srcdir)/'`../lib/sg_pt_common.c
-#	$(am__mv) $(DEPDIR)/sg_pt_common.Tpo $(DEPDIR)/sg_pt_common.Po
-	source='../lib/sg_pt_common.c' object='sg_pt_common.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_common.o `test -f '../lib/sg_pt_common.c' || echo '$(srcdir)/'`../lib/sg_pt_common.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_common.o -MD -MP -MF $(DEPDIR)/sg_pt_common.Tpo -c -o sg_pt_common.o `test -f '../lib/sg_pt_common.c' || echo '$(srcdir)/'`../lib/sg_pt_common.c
+	$(am__mv) $(DEPDIR)/sg_pt_common.Tpo $(DEPDIR)/sg_pt_common.Po
+#	source='../lib/sg_pt_common.c' object='sg_pt_common.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_common.o `test -f '../lib/sg_pt_common.c' || echo '$(srcdir)/'`../lib/sg_pt_common.c
 
 sg_pt_common.obj: ../lib/sg_pt_common.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_common.obj -MD -MP -MF $(DEPDIR)/sg_pt_common.Tpo -c -o sg_pt_common.obj `if test -f '../lib/sg_pt_common.c'; then $(CYGPATH_W) '../lib/sg_pt_common.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_common.c'; fi`
-#	$(am__mv) $(DEPDIR)/sg_pt_common.Tpo $(DEPDIR)/sg_pt_common.Po
-	source='../lib/sg_pt_common.c' object='sg_pt_common.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_common.obj `if test -f '../lib/sg_pt_common.c'; then $(CYGPATH_W) '../lib/sg_pt_common.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_common.c'; fi`
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_common.obj -MD -MP -MF $(DEPDIR)/sg_pt_common.Tpo -c -o sg_pt_common.obj `if test -f '../lib/sg_pt_common.c'; then $(CYGPATH_W) '../lib/sg_pt_common.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_common.c'; fi`
+	$(am__mv) $(DEPDIR)/sg_pt_common.Tpo $(DEPDIR)/sg_pt_common.Po
+#	source='../lib/sg_pt_common.c' object='sg_pt_common.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_common.obj `if test -f '../lib/sg_pt_common.c'; then $(CYGPATH_W) '../lib/sg_pt_common.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_common.c'; fi`
 
 sg_pt_linux.o: ../lib/sg_pt_linux.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_linux.o -MD -MP -MF $(DEPDIR)/sg_pt_linux.Tpo -c -o sg_pt_linux.o `test -f '../lib/sg_pt_linux.c' || echo '$(srcdir)/'`../lib/sg_pt_linux.c
-#	$(am__mv) $(DEPDIR)/sg_pt_linux.Tpo $(DEPDIR)/sg_pt_linux.Po
-	source='../lib/sg_pt_linux.c' object='sg_pt_linux.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_linux.o `test -f '../lib/sg_pt_linux.c' || echo '$(srcdir)/'`../lib/sg_pt_linux.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_linux.o -MD -MP -MF $(DEPDIR)/sg_pt_linux.Tpo -c -o sg_pt_linux.o `test -f '../lib/sg_pt_linux.c' || echo '$(srcdir)/'`../lib/sg_pt_linux.c
+	$(am__mv) $(DEPDIR)/sg_pt_linux.Tpo $(DEPDIR)/sg_pt_linux.Po
+#	source='../lib/sg_pt_linux.c' object='sg_pt_linux.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_linux.o `test -f '../lib/sg_pt_linux.c' || echo '$(srcdir)/'`../lib/sg_pt_linux.c
 
 sg_pt_linux.obj: ../lib/sg_pt_linux.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_linux.obj -MD -MP -MF $(DEPDIR)/sg_pt_linux.Tpo -c -o sg_pt_linux.obj `if test -f '../lib/sg_pt_linux.c'; then $(CYGPATH_W) '../lib/sg_pt_linux.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_linux.c'; fi`
-#	$(am__mv) $(DEPDIR)/sg_pt_linux.Tpo $(DEPDIR)/sg_pt_linux.Po
-	source='../lib/sg_pt_linux.c' object='sg_pt_linux.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_linux.obj `if test -f '../lib/sg_pt_linux.c'; then $(CYGPATH_W) '../lib/sg_pt_linux.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_linux.c'; fi`
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_linux.obj -MD -MP -MF $(DEPDIR)/sg_pt_linux.Tpo -c -o sg_pt_linux.obj `if test -f '../lib/sg_pt_linux.c'; then $(CYGPATH_W) '../lib/sg_pt_linux.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_linux.c'; fi`
+	$(am__mv) $(DEPDIR)/sg_pt_linux.Tpo $(DEPDIR)/sg_pt_linux.Po
+#	source='../lib/sg_pt_linux.c' object='sg_pt_linux.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_linux.obj `if test -f '../lib/sg_pt_linux.c'; then $(CYGPATH_W) '../lib/sg_pt_linux.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_linux.c'; fi`
 
 sg_pt_freebsd.o: ../lib/sg_pt_freebsd.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_freebsd.o -MD -MP -MF $(DEPDIR)/sg_pt_freebsd.Tpo -c -o sg_pt_freebsd.o `test -f '../lib/sg_pt_freebsd.c' || echo '$(srcdir)/'`../lib/sg_pt_freebsd.c
-#	$(am__mv) $(DEPDIR)/sg_pt_freebsd.Tpo $(DEPDIR)/sg_pt_freebsd.Po
-	source='../lib/sg_pt_freebsd.c' object='sg_pt_freebsd.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_freebsd.o `test -f '../lib/sg_pt_freebsd.c' || echo '$(srcdir)/'`../lib/sg_pt_freebsd.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_freebsd.o -MD -MP -MF $(DEPDIR)/sg_pt_freebsd.Tpo -c -o sg_pt_freebsd.o `test -f '../lib/sg_pt_freebsd.c' || echo '$(srcdir)/'`../lib/sg_pt_freebsd.c
+	$(am__mv) $(DEPDIR)/sg_pt_freebsd.Tpo $(DEPDIR)/sg_pt_freebsd.Po
+#	source='../lib/sg_pt_freebsd.c' object='sg_pt_freebsd.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_freebsd.o `test -f '../lib/sg_pt_freebsd.c' || echo '$(srcdir)/'`../lib/sg_pt_freebsd.c
 
 sg_pt_freebsd.obj: ../lib/sg_pt_freebsd.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_freebsd.obj -MD -MP -MF $(DEPDIR)/sg_pt_freebsd.Tpo -c -o sg_pt_freebsd.obj `if test -f '../lib/sg_pt_freebsd.c'; then $(CYGPATH_W) '../lib/sg_pt_freebsd.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_freebsd.c'; fi`
-#	$(am__mv) $(DEPDIR)/sg_pt_freebsd.Tpo $(DEPDIR)/sg_pt_freebsd.Po
-	source='../lib/sg_pt_freebsd.c' object='sg_pt_freebsd.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_freebsd.obj `if test -f '../lib/sg_pt_freebsd.c'; then $(CYGPATH_W) '../lib/sg_pt_freebsd.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_freebsd.c'; fi`
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_freebsd.obj -MD -MP -MF $(DEPDIR)/sg_pt_freebsd.Tpo -c -o sg_pt_freebsd.obj `if test -f '../lib/sg_pt_freebsd.c'; then $(CYGPATH_W) '../lib/sg_pt_freebsd.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_freebsd.c'; fi`
+	$(am__mv) $(DEPDIR)/sg_pt_freebsd.Tpo $(DEPDIR)/sg_pt_freebsd.Po
+#	source='../lib/sg_pt_freebsd.c' object='sg_pt_freebsd.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_freebsd.obj `if test -f '../lib/sg_pt_freebsd.c'; then $(CYGPATH_W) '../lib/sg_pt_freebsd.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_freebsd.c'; fi`
 
 sg_pt_osf1.o: ../lib/sg_pt_osf1.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_osf1.o -MD -MP -MF $(DEPDIR)/sg_pt_osf1.Tpo -c -o sg_pt_osf1.o `test -f '../lib/sg_pt_osf1.c' || echo '$(srcdir)/'`../lib/sg_pt_osf1.c
-#	$(am__mv) $(DEPDIR)/sg_pt_osf1.Tpo $(DEPDIR)/sg_pt_osf1.Po
-	source='../lib/sg_pt_osf1.c' object='sg_pt_osf1.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_osf1.o `test -f '../lib/sg_pt_osf1.c' || echo '$(srcdir)/'`../lib/sg_pt_osf1.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_osf1.o -MD -MP -MF $(DEPDIR)/sg_pt_osf1.Tpo -c -o sg_pt_osf1.o `test -f '../lib/sg_pt_osf1.c' || echo '$(srcdir)/'`../lib/sg_pt_osf1.c
+	$(am__mv) $(DEPDIR)/sg_pt_osf1.Tpo $(DEPDIR)/sg_pt_osf1.Po
+#	source='../lib/sg_pt_osf1.c' object='sg_pt_osf1.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_osf1.o `test -f '../lib/sg_pt_osf1.c' || echo '$(srcdir)/'`../lib/sg_pt_osf1.c
 
 sg_pt_osf1.obj: ../lib/sg_pt_osf1.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_osf1.obj -MD -MP -MF $(DEPDIR)/sg_pt_osf1.Tpo -c -o sg_pt_osf1.obj `if test -f '../lib/sg_pt_osf1.c'; then $(CYGPATH_W) '../lib/sg_pt_osf1.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_osf1.c'; fi`
-#	$(am__mv) $(DEPDIR)/sg_pt_osf1.Tpo $(DEPDIR)/sg_pt_osf1.Po
-	source='../lib/sg_pt_osf1.c' object='sg_pt_osf1.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_osf1.obj `if test -f '../lib/sg_pt_osf1.c'; then $(CYGPATH_W) '../lib/sg_pt_osf1.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_osf1.c'; fi`
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_osf1.obj -MD -MP -MF $(DEPDIR)/sg_pt_osf1.Tpo -c -o sg_pt_osf1.obj `if test -f '../lib/sg_pt_osf1.c'; then $(CYGPATH_W) '../lib/sg_pt_osf1.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_osf1.c'; fi`
+	$(am__mv) $(DEPDIR)/sg_pt_osf1.Tpo $(DEPDIR)/sg_pt_osf1.Po
+#	source='../lib/sg_pt_osf1.c' object='sg_pt_osf1.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_osf1.obj `if test -f '../lib/sg_pt_osf1.c'; then $(CYGPATH_W) '../lib/sg_pt_osf1.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_osf1.c'; fi`
 
 sg_pt_solaris.o: ../lib/sg_pt_solaris.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_solaris.o -MD -MP -MF $(DEPDIR)/sg_pt_solaris.Tpo -c -o sg_pt_solaris.o `test -f '../lib/sg_pt_solaris.c' || echo '$(srcdir)/'`../lib/sg_pt_solaris.c
-#	$(am__mv) $(DEPDIR)/sg_pt_solaris.Tpo $(DEPDIR)/sg_pt_solaris.Po
-	source='../lib/sg_pt_solaris.c' object='sg_pt_solaris.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_solaris.o `test -f '../lib/sg_pt_solaris.c' || echo '$(srcdir)/'`../lib/sg_pt_solaris.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_solaris.o -MD -MP -MF $(DEPDIR)/sg_pt_solaris.Tpo -c -o sg_pt_solaris.o `test -f '../lib/sg_pt_solaris.c' || echo '$(srcdir)/'`../lib/sg_pt_solaris.c
+	$(am__mv) $(DEPDIR)/sg_pt_solaris.Tpo $(DEPDIR)/sg_pt_solaris.Po
+#	source='../lib/sg_pt_solaris.c' object='sg_pt_solaris.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_solaris.o `test -f '../lib/sg_pt_solaris.c' || echo '$(srcdir)/'`../lib/sg_pt_solaris.c
 
 sg_pt_solaris.obj: ../lib/sg_pt_solaris.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_solaris.obj -MD -MP -MF $(DEPDIR)/sg_pt_solaris.Tpo -c -o sg_pt_solaris.obj `if test -f '../lib/sg_pt_solaris.c'; then $(CYGPATH_W) '../lib/sg_pt_solaris.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_solaris.c'; fi`
-#	$(am__mv) $(DEPDIR)/sg_pt_solaris.Tpo $(DEPDIR)/sg_pt_solaris.Po
-	source='../lib/sg_pt_solaris.c' object='sg_pt_solaris.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_solaris.obj `if test -f '../lib/sg_pt_solaris.c'; then $(CYGPATH_W) '../lib/sg_pt_solaris.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_solaris.c'; fi`
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_solaris.obj -MD -MP -MF $(DEPDIR)/sg_pt_solaris.Tpo -c -o sg_pt_solaris.obj `if test -f '../lib/sg_pt_solaris.c'; then $(CYGPATH_W) '../lib/sg_pt_solaris.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_solaris.c'; fi`
+	$(am__mv) $(DEPDIR)/sg_pt_solaris.Tpo $(DEPDIR)/sg_pt_solaris.Po
+#	source='../lib/sg_pt_solaris.c' object='sg_pt_solaris.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_solaris.obj `if test -f '../lib/sg_pt_solaris.c'; then $(CYGPATH_W) '../lib/sg_pt_solaris.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_solaris.c'; fi`
 
 sg_pt_win32.o: ../lib/sg_pt_win32.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_win32.o -MD -MP -MF $(DEPDIR)/sg_pt_win32.Tpo -c -o sg_pt_win32.o `test -f '../lib/sg_pt_win32.c' || echo '$(srcdir)/'`../lib/sg_pt_win32.c
-#	$(am__mv) $(DEPDIR)/sg_pt_win32.Tpo $(DEPDIR)/sg_pt_win32.Po
-	source='../lib/sg_pt_win32.c' object='sg_pt_win32.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_win32.o `test -f '../lib/sg_pt_win32.c' || echo '$(srcdir)/'`../lib/sg_pt_win32.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_win32.o -MD -MP -MF $(DEPDIR)/sg_pt_win32.Tpo -c -o sg_pt_win32.o `test -f '../lib/sg_pt_win32.c' || echo '$(srcdir)/'`../lib/sg_pt_win32.c
+	$(am__mv) $(DEPDIR)/sg_pt_win32.Tpo $(DEPDIR)/sg_pt_win32.Po
+#	source='../lib/sg_pt_win32.c' object='sg_pt_win32.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_win32.o `test -f '../lib/sg_pt_win32.c' || echo '$(srcdir)/'`../lib/sg_pt_win32.c
 
 sg_pt_win32.obj: ../lib/sg_pt_win32.c
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_win32.obj -MD -MP -MF $(DEPDIR)/sg_pt_win32.Tpo -c -o sg_pt_win32.obj `if test -f '../lib/sg_pt_win32.c'; then $(CYGPATH_W) '../lib/sg_pt_win32.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_win32.c'; fi`
-#	$(am__mv) $(DEPDIR)/sg_pt_win32.Tpo $(DEPDIR)/sg_pt_win32.Po
-	source='../lib/sg_pt_win32.c' object='sg_pt_win32.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_win32.obj `if test -f '../lib/sg_pt_win32.c'; then $(CYGPATH_W) '../lib/sg_pt_win32.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_win32.c'; fi`
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sg_pt_win32.obj -MD -MP -MF $(DEPDIR)/sg_pt_win32.Tpo -c -o sg_pt_win32.obj `if test -f '../lib/sg_pt_win32.c'; then $(CYGPATH_W) '../lib/sg_pt_win32.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_win32.c'; fi`
+	$(am__mv) $(DEPDIR)/sg_pt_win32.Tpo $(DEPDIR)/sg_pt_win32.Po
+#	source='../lib/sg_pt_win32.c' object='sg_pt_win32.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sg_pt_win32.obj `if test -f '../lib/sg_pt_win32.c'; then $(CYGPATH_W) '../lib/sg_pt_win32.c'; else $(CYGPATH_W) '$(srcdir)/../lib/sg_pt_win32.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \

@@ -5,7 +5,7 @@
 #define HAVE_GETOPT_LONG 1
 
 /* Define to 1 if you have the <linux/bsg.h> header file. */
-/* #undef HAVE_LINUX_BSG_H */
+#define HAVE_LINUX_BSG_H 1
 
 /* Define to 1 if you have the <linux/kdev_t.h> header file. */
 #define HAVE_LINUX_KDEV_T_H 1
