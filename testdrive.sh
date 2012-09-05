@@ -42,8 +42,22 @@ echo "Size: $devsize" | tee -a $log_file
 echo "Pre-test stats:" | tee -a $log_file
 echo "$prestat" | tee -a $log_file
 
+#check smart before the test
+if [ $is_ata = "ATA" ]
+then
+    presmartline=$(smartctl -T permissive -a /dev/$1 | grep "SMART overall-health")
+else
+    presmartline=$(smartctl -T permissive -a /dev/$1 | grep "SMART Health Status")
+fi
+echo "$presmartline" | tee -a $log_file
+
 #run the test
 bbcount=$(badblocks -swft random /dev/$1 | tee -a $log_file | wc -l)
+
+if [ "$bbcount" != "0"]
+then
+    echo "**** NON-ZERO BAD BLOCK COUNT ****"
+fi
 
 #check smart after the test
 if [ $is_ata = "ATA" ]
