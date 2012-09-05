@@ -54,7 +54,7 @@ echo "$presmartline" | tee -a $log_file
 #run the test
 bbcount=$(badblocks -swft random /dev/$1 | tee -a $log_file | wc -l)
 
-if [ "$bbcount" != "0"]
+if [ "$bbcount" != "0" ]
 then
     echo "**** NON-ZERO BAD BLOCK COUNT ****"
 fi
