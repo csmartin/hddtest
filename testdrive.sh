@@ -28,12 +28,12 @@ then
     echo "Drive is SATA" | tee -a $log_file
     manuf=$(hdparm -I /dev/$1 | grep "Model Number" | awk '{print $3}')
     modelnum=$(hdparm -I /dev/$1 | grep "Model Number" | awk '{print $4}')
-    prestat=$(smartctl -T permissive  -a /dev/$1 | egrep "(Realloc|Current_Pe|Offline_Unc)")
+    prestat=$(/usr/local/sbin/smartctl -T permissive  -a /dev/$1 | egrep "(Realloc|Current_Pe|Offline_Unc)")
 else
     echo "Drive is SAS" | tee -a $log_file
     manuf=$(/usr/local/bin/sdparm /dev/$1 | awk '{print $2}' | head -1)
     modelnum=$is_ata
-    prestat=$(smartctl -T permissive -a /dev/$1 | egrep "(Non-medium|grown defect)")
+    prestat=$(/usr/local/sbin/smartctl -T permissive -a /dev/$1 | egrep "(Non-medium|grown defect)")
 fi
 
 echo "Manufacturer: $manuf" | tee -a $log_file
@@ -51,9 +51,9 @@ echo "$prestat" | tee -a $log_file
 #check smart before the test
 if [ $is_ata = "ATA" ]
 then
-    presmartline=$(smartctl -T permissive -a /dev/$1 | grep "SMART overall-health")
+    presmartline=$(/usr/local/sbin/smartctl -T permissive -a /dev/$1 | grep "SMART overall-health")
 else
-    presmartline=$(smartctl -T permissive -a /dev/$1 | grep "SMART Health Status")
+    presmartline=$(/usr/local/sbin/smartctl -T permissive -a /dev/$1 | grep "SMART Health Status")
 fi
 echo "$presmartline" | tee -a $log_file
 
@@ -68,9 +68,9 @@ fi
 #check smart after the test
 if [ $is_ata = "ATA" ]
 then
-    smartline=$(smartctl -T permissive -a /dev/$1 | grep "SMART overall-health")
+    smartline=$(/usr/local/sbin/smartctl -T permissive -a /dev/$1 | grep "SMART overall-health")
 else
-    smartline=$(smartctl -T permissive -a /dev/$1 | grep "SMART Health Status")
+    smartline=$(/usr/local/sbin/smartctl -T permissive -a /dev/$1 | grep "SMART Health Status")
 fi
 
 echo "$bbcount bad block(s) found." | tee -a $log_file # echo to screen and log
@@ -81,9 +81,9 @@ echo "Finished at $(date +%Y-%m-%d-%H:%M:%S)." | tee -a $log_file;
 #show post-test stats
 if [ $is_ata = "ATA" ]
 then
-    poststat=$(smartctl -T permissive  -a /dev/$1 | egrep "(Realloc|Current_Pe|Offline_Unc)")
+    poststat=$(/usr/local/sbin/smartctl -T permissive  -a /dev/$1 | egrep "(Realloc|Current_Pe|Offline_Unc)")
 else
-    poststat=$(smartctl -T permissive -a /dev/$1 | egrep "(Non-medium|grown defect)")
+    poststat=$(/usr/local/sbin/smartctl -T permissive -a /dev/$1 | egrep "(Non-medium|grown defect)")
 fi
 
 echo "Post-test stats:" | tee -a $log_file
