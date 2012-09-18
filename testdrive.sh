@@ -8,6 +8,12 @@
 thedate=$(date +%Y-%m-%d-%H%M)
 log_file=logs/badblocks-$1-$thedate.log
 
+if [ "$1" = "sda" ]
+then
+    echo "/dev/sda may not be tested, since the OS is on this drive. Try again."
+    exit
+fi
+
 echo "Testing drive /dev/$1" | tee $log_file   # no -a here, to create a new file
 echo "Starting at $(date +%Y-%m-%d-%H:%M:%S)" | tee -a $log_file
 
