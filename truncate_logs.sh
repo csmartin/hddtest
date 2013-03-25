@@ -1,5 +1,5 @@
 #!/bin/bash
-for item in $(find logs -name "*.log" -size +10M)
+for item in $(find -L logs -name "*.log" -size +10M)
 do
 	head -n 1000 $item > $item.tmp
 	tail -n 1000 $item >> $item.tmp
